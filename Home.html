@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainy.com</title>
+    <link rel="icon" href="Images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="Website2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body onload="onLoad()">
+    <div id="main">
+        <div id="navbar">
+            <div id="block1">
+                <a href="Home.html"><img src="Images/tarin logo.png"></a><a href="Home.html"><span id="name"><span style="color:rgb(248, 244, 244);">TRAINY</span><span style="color:rgb(148, 76, 76);">.com</span></span></a>
+            </div>
+            <div id="block2">
+                <ul id="ul">
+                    <li><a id="first" class="cool" href="Home.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a id="secend" class="cool" href="Bookings.html"><i class="fas fa-table"></i>Bookings</a></li>
+                    <li><a id="third" class="cool" href="Help.html"><i class="fab fa-hire-a-helper"></i>Help</a></li>
+                    <li><a id="fourth" class="cool" href=""><i class="fas fa-id-card-alt"></i>Contacts <i id="drop"class="fas fa-caret-down"></i></a></li>
+                    <li><a id="fifth" class="cool" href=""><i  class="fas fa-user-circle"></i>Account</a></li>
+                </ul>
+            </div>
+            <div id="block3">
+                <a id="account" href="Account.html">
+                    <button id="acc" class="btn btn-info" style="font-size:23px;color:white;"><i style="margin-right:5px;" class="fas fa-user-circle"></i>Account</button>
+                </a>
+                <a id="none" onclick="none()" href=""><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+        <div id="move-train">
+
+            <img id="img" src="Images/Moving 1.png">
+
+        </div>
+        <div id="contact">
+            <div id="div">
+                <span><i id="icon" class="fas fa-headset"></i></span><span style="margin-left:15px;">0110-234567743</span><br><br>
+                <span><i id="icon2" class="fas fa-at"></i></span><span style="margin-left:15px;">trainy@gmail.com</span>
+            </div>
+            <div id="social">
+                <span><a class="ico"href="https://www.facebook.com/"><i id="icon1" style="color:rgb(87, 66, 209);"class="fab fa-facebook-square"></i></a></span>
+                <span><a class="ico"href="https://www.playstore.com/"><i id="ico" style="color:rgb(233, 196, 75);" class="fab fa-google-play"></i></a></span>
+                <span><a class="ico"href="https://www.youtube.com/"><i id="icon3" style="color:rgb(233, 75, 75);" class="fab fa-youtube-square"></i></a></span>
+            </div>
+        </div>
+        <!-- header part ends here -->
+        <!--------------------------------------------------------------------------------------------------------------------->
+        <div id="home-header">
+            <div id="inside">
+                <span id="swap"><i class="fas fa-exchange-alt"></i></span>
+                <div id="from-to">
+
+                    <head style="position: absolute;">
+                        <input autocomplete="off" onkeyup="change_to_Trainno('select-city1','select-city2')" id="select-city1" class="input" placeholder="ex: DELHI" type="text">
+                        <input autocomplete="off" onkeyup="change_to_Trainno('select-city2','select-city1')" id="select-city2" class="input" placeholder="ex: MUMBAI" type="text">
+                    </head>
+
+                    <head id="head">
+                        <input onkeyup="Trainno_to_city()" autocomplete="off" id="trainno" class="input" placeholder="ex: 2010PQXe3" type="text">
+                    </head>
+
+                </div>
+                <div id="date">
+                    <input autocomplete="off" id="show-date" class="input" type="text">
+                    <input id="select-date" onchange="changedate()" type="date">
+                    <div onclick="current()" id="today" class="dates">
+                        <span class="d" id="dating1">29 Jul</span><br>
+                        <span class="D" id="day1">Thu</span>
+                    </div>
+                    <div onclick="future()" id="towmorrow" class="dates">
+                        <span class="d" id="dating2">30 Jul</span><br>
+                        <span class="D" id="day2">Fri</span>
+
+                    </div>
+                    <div onclick="further()" id="dayafter" class="dates">
+                        <span class="d" id="dating3">31 Jul</span><br>
+                        <span class="D" id="day3">Sat</span>
+                    </div>
+                </div>
+                <button onclick="Search()" type="button" style="border-radius:0px;" class="btn btn-info btn-lg"><i class="fas fa-search"></i> SEARCH TRAIN</button>
+            </div>
+        </div>
+        <div id="tickets">
+            <!----------------------------------------------------------------------------------------------->
+            <!--First Tickets starts from here-->
+            <div id="Delhi1" class="booking-tickets">
+                <div style="display:flex; width:100%;height:60px;">
+                    <div style="width:30%;height:40px;">
+                        <span class="heading">NETAJI EXP SPL</span><br> #
+                        <span class="trainnumber">02302</span><span class="below-heading">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Departs on: S M  <span style="color:rgb(8, 145, 187);">T</span> W T <span style="color:rgb(11, 143, 184);">F</span> S</span>
+                    </div>
+                    <div style="padding:8px 30px;width:35%;height:40px;">
+                        <span class="timings"><b>5:00 AM, TUE/FRI</b></span><br>
+                        <span class="below-heading">IG Station (<span class="city">Delhi</span>)</span>
+                    </div>
+                    <div class="line" style="padding:8px 5px;width:5%;height:40px;">
+                        <hr style="width:40px;background-color:rgba(5, 5, 5, 0.5);">
+                    </div>
+                    <div style="padding:8px 50px;width:40%;height:40px;">
+                        <span class="timings"><b>8:05 AM, WED/SAT</b></span><br>
+                        <span class="below-heading">HGI Station (Kolkata)</span>
+                    </div>
+                </div>
+                <div style="padding:25px 0px 0px 25px;display:flex; flex-wrap: wrap;">
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>2A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.1800/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">TGHjk2</span><br>
+                                <span class="update">Updated 2hrs ago</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>3A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.983/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">QWEgy3</span><br>
+                                <span class="update">Updated 3.5hrs ago</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>1A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2403/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">KJFor8</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>SL</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2803/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">HgFTi6</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <!--First Tickets ends here-->
+            <!--------------------------------------------------------------------------------------------------------------------->
+
+
+            <!----------------------------------------------------------------------------------------------->
+            <!--Second Tickets starts from here-->
+            <div id="Mumbai2" class="booking-tickets">
+                <div style="display:flex;width:100%;height:60px;">
+                    <div style="width:30%;height:40px;">
+                        <span class="heading">POORAV EXP SP</span><br> #
+                        <span id="Mumbai2" class="trainnumber">5671</span><span class="below-heading">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Departs on: S <span style="color:rgb(8, 145, 187);">M</span> T W T <span style="color:rgb(11, 143, 184);">F</span>                        S</span>
+                    </div>
+                    <div style="padding:8px 30px;width:35%;height:40px;">
+                        <span class="timings"><b>3:00 PM,  MON/FRI</b></span><br>
+                        <span class="below-heading">LS Station (<span class="city">Mumbai</span>)</span>
+                    </div>
+                    <div class="line" style="padding:8px 5px;width:5%;height:40px;">
+                        <hr style="width:40px;background-color:rgba(5, 5, 5, 0.5);">
+                    </div>
+                    <div style="padding:8px 50px;width:40%;height:40px;">
+                        <span class="timings"><b>8:05 AM, TUE/SAT</b></span><br>
+                        <span class="below-heading">HGI Station (Kolkata)</span>
+                    </div>
+                </div>
+                <div style="padding:25px 0px 0px 25px;display:flex; flex-wrap: wrap;">
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>2A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.1500/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">QWER2</span><br>
+                                <span class="update">Updated 2hrs ago</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>3A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.800/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">SW1I9</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>1A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2203/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">KI234</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>SL</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2103/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">SDTi6</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Second Tickets ends here-->
+            <!--------------------------------------------------->
+            <!----------------------------------------------------------------------------------------------->
+            <!--Third Tickets starts from here-->
+            <div id="Mumbai1" class="booking-tickets">
+                <div style="display:flex;width:100%;height:60px;">
+                    <div style="width:30%;height:40px;">
+                        <span class="heading">RAJ SPL</span><br> #
+                        <span class="trainnumber">2221</span><span class="below-heading">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Departs on: <span style="color:rgb(8, 145, 187);">S</span> M T W <span style="color:rgb(11, 143, 184);">T</span> F S</span>
+                    </div>
+                    <div style="padding:8px 30px;width:35%;height:40px;">
+                        <span class="timings"><b>6:35 PM,  SUN/THU</b></span><br>
+                        <span class="below-heading">RTV Station (<span class="city">Mumbai</span>)</span>
+                    </div>
+                    <div class="line" style="padding:8px 5px;width:5%;height:40px;">
+                        <hr style="width:40px;background-color:rgba(5, 5, 5, 0.5);">
+                    </div>
+                    <div style="padding:8px 50px;width:40%;height:40px;">
+                        <span class="timings"><b>11:35 PM, SUN/THU</b></span><br>
+                        <span class="below-heading">VD Station (Kolkata)</span>
+                    </div>
+                </div>
+                <div style="padding:25px 0px 0px 25px;display:flex; flex-wrap: wrap;">
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>2A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.1200/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">KNJU87</span><br>
+                                <span class="update">Updated 2hrs ago</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>3A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.903/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">QWEgy3</span><br>
+                                <span class="update">Updated 2hrs ago</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>1A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2403/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">KJFor8</span><br>
+                                <span class="update">Updated 2hrs ago</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>SL</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2803/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">HgFTi6</span><br>
+                                <span class="update">Updated 2hrs ago</span>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Third Tickets ends here-->
+            <!--------------------------------------------------->
+            <!----------------------------------------------------------------------------------------------->
+            <!--Fourth Tickets starts from here-->
+            <div id="Delhi2" class="booking-tickets">
+                <div style="display:flex;width:100%;height:60px;">
+                    <div style="width:30%;height:40px;">
+                        <span class="heading">METRO #21</span><br> #
+                        <span class="trainnumber">02317</span><span class="below-heading">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Departs on: S M T <span style="color:rgb(8, 145, 187);">W</span> T F <span style="color:rgb(11, 143, 184);">S</span> </span>
+                    </div>
+                    <div style="padding:8px 30px;width:35%;height:40px;">
+                        <span class="timings"><b>9:00 AM, WED/SAT</b></span><br>
+                        <span class="below-heading">PSU Station (<span class="city">Delhi</span>)</span>
+                    </div>
+                    <div class="line" style="padding:8px 5px;width:5%;height:40px;">
+                        <hr style="width:40px;background-color:rgba(5, 5, 5, 0.5);">
+                    </div>
+                    <div style="padding:8px 50px;width:40%;height:40px;">
+                        <span class="timings"><b>12:05 PM, THU/SUN</b></span><br>
+                        <span class="below-heading">WB Station (Kolkata)</span>
+                    </div>
+                </div>
+                <div style="padding:25px 0px 0px 25px;display:flex; flex-wrap: wrap;">
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>2A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.1400/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">ZSD213</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>3A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.883/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">8YTREDR</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>1A</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2803/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">GOU324</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="ticket-class">
+                            <div style="width:100%; height:20px;display:flex;">
+                                <div style="width:50%;height:20px;">
+                                    <span class="train-class"><b>SL</b></span>
+                                    <span class="class">CLASS</span>
+                                </div>
+                                <div style="padding-left:15px;width:50%;height:20px;">
+                                    <span class="train-class"><b>Rs.2503/-</b></span>
+                                </div>
+                            </div>
+                            <div style="padding-top:5px;width:100%;">
+                                <span class="class">JKL09G</span><br>
+                                <span class="not-available">Not-available</span>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <!--Fourth Tickets ends here-->
+            <!--------------------------------------------------------------------------------------------------------------------->
+
+            <!------------------------------------------------------------------------------------>
+            <!-- error div starts here -->
+            <div id="error-div">
+                <span id="ex"><i class="fas fa-exclamation-triangle"></i></span>
+                <span id="sorry-text">Sorry No Trains Are Available... ! <i class="fas fa-meh"></i></span>
+            </div>
+            <!-- error div emds here -->
+            <!------------------------------------------------------------------------------------>
+        </div>
+        <div id="main2">
+            <div id="offers">
+
+                <div class="offer">
+                    <div class="header">
+                        <div>
+                            <img src="Images/offer-image1.jpg">
+                        </div>
+                        <div class="second-div">
+                            <span class="offer-heading"><b>Grab Flat 25% Off On Domestic Trains</b></span>
+
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p style=" margin:22px 2px 0px 2px ;font-size:12px;">T&C's Apply</p>
+                        <p style=" margin:22px 2px 0px 150px ;"><b><a href="">VEIW DETAILS</a></b></p>
+                    </div>
+                </div>
+                <div class="offer">
+                    <div class="header">
+                        <div>
+                            <img src="Images/offer-image2.jpg">
+                        </div>
+                        <div class="second-div">
+                            <span class="offer-heading"><b>Grab  Rs.2500 Cash back* On VIP Seats</b></span>
+
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p style=" margin:22px 2px 0px 2px ;font-size:12px;">T&C's Apply</p>
+                        <p style=" margin:22px 2px 0px 150px ;"><b><a href="">VEIW DETAILS</a></b></p>
+                    </div>
+                </div>
+                <div class="offer">
+                    <div class="header">
+                        <div>
+                            <img src="Images/offer-image3.jpg">
+                        </div>
+                        <div class="second-div">
+                            <span class="offer-heading"><b>Grab Flat 15% Off On Four Tickets</b></span>
+
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p style=" margin:22px 2px 0px 2px ;font-size:12px;">T&C's Apply</p>
+                        <p style=" margin:22px 2px 0px 150px ;"><b><a href="">VEIW DETAILS</a></b></p>
+                    </div>
+                </div>
+            </div>
+            <div id="loan-div">
+                <div class="loans" id="loan1">
+                    <div>
+                        <img src="Images/loan1.jpg">
+                    </div>
+                    <div class="padder">
+                        <span><b>Domestic Loans</b></span><br>
+                        <span>Get Domestic Loans Upto Rs.300000 On Very Low Interest </span><br>
+                        <a class="extra" style="font-size:12px;" href="">VEIW DETAILS</a>
+                    </div>
+                </div>
+                <div class="loans" id="loan2">
+                    <div>
+                        <img src="Images/loan3.jpg">
+                    </div>
+                    <div class="padder">
+                        <span><b>Credit/Debit Loans</b></span><br>
+                        <span>Get Cash And Discount Using Credit/Debit Cards</span><br>
+                        <a class="extra" style="font-size:12px;" href="">VEIW DETAILS</a>
+                    </div>
+                </div>
+                <div class="loans" id="loan3">
+                    <div>
+                        <img src="Images/loan2.jpg">
+                    </div>
+                    <div class="padder">
+                        <span><b>Travel Loans</b></span><br>
+                        <span>Loans Upto Rs.200000 On Low Interest</span><br>
+                        <a class="extra" style="font-size:12px;" href="">VEIW DETAILS</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="foot">
+            <div class="foot-list">
+                <ul>
+                    <li class="head"><b>TRAINY.COM</b></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Investor Relations</a></li>
+                    <li><a href="">Testimonial</a></li>
+                    <li><a href="">Reviews</a></li>
+                    <li><a href="">Careers</a></li>
+                    <li><a href="">Corporate Travel</a></li>
+                    <li><a href="">Travel Guide</a></li>
+                    <li><a href="">Travel Blog</a></li>
+                    <li><a href="">Offers</a></li>
+                    <li><a href="">Gift Vouchers</a></li>
+                    <li><a href="">My Trip Essentials</a></li>
+                    <li><a href="">Stories</a></li>
+                    <li><a href="">Trip Planner</a></li>
+                    <li><a href="">CSR Policy</a></li>
+                    <li><a href="">Trip Ideas</a></li>
+                    <li><a href="">Beaches</a></li>
+                    <li><a href="">Popular Destinations</a></li>
+                    <li><a href="">Payment Security</a></li>
+                    <li><a href="">User Agreement</a></li>
+                    <li><a href="">Privacy</a></li>
+                    <li><a href="">Agreement</a></li>
+                    <li><a href="">Manali</a></li>
+                    <li><a href="">Goa</a></li>
+                    <li><a href="">Security</a></li>
+                </ul>
+
+            </div>
+            <div class="foot-list">
+                <ul>
+                    <li class="head"><b>ABOUT SITE</b></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Payment Security</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">User Agreement</a></li>
+                    <li><a href="">Terms of Service</a></li>
+                    <li><a href="">Visa Information</a></li>
+                    <li><a href="">More Offices</a></li>
+                    <li><a href="">Make A Payment</a></li>
+                    <li><a href="">Report a defect/MMT Bug Bounty</a></li>
+                    <li><a href="">Work From Home</a></li>
+                    <li><a href="">Covid Facilities</a></li>
+                </ul>
+            </div>
+            <div class="foot-list">
+                <ul>
+                    <li class="head"><b>PARTNER PROGRAMS</b></li>
+                    <li><a href="">Our Retail Stores</a></li>
+                    <li><a href="">myPartner - Travel Agent Portal</a></li>
+                    <li><a href="">Franchise Program Details</a></li>
+                    <li><a href="">Foreign Exchange</a></li>
+                    <li><a href="">Reliance – Travel Insurance</a></li>
+                    <li><a href="">List your hotel</a></li>
+                </ul>
+            </div>
+            <div class="foot-list">
+                <ul>
+                    <li class="head"><b>MORE LINKS</b></li>
+                    <li><a href="">Discount Coupen</a></li>
+                    <li><a href="">Delhi Ticket</a></li>
+                    <li><a href="">Trains</a></li>
+                    <li><a href="">Local Trains</a></li>
+                    <li><a href="">Kolkata Trains</a></li>
+                    <li><a href="">Vip Trains</a></li>
+                    <li><a href="">Train Info</a></li>
+                    <li><a href="">Tickets</a></li>
+                    <li><a href="">Payments</a></li>
+                    <li><a href="">Growth</a></li>
+                    <li><a href="">DElhi to Kolkata</a></li>
+                    <li><a href="">Metro</a></li>
+                    <li><a href="">Classic Ticket</a></li>
+                    <li><a href="">Security</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="end">
+        <p><b>© 2021 TRAINY.COM PVT. LTD.<br>Country India USA UAE</b></p>
+        <button id="up" type="button" style="border-radius:0px;" class="btn btn-info"><i class="fas fa-arrow-circle-up"></i>  Scroll</button>
+
+    </div>
+</body>
+<script src="Website2.js"></script>
+
+</html>
